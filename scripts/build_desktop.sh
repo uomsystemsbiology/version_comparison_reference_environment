@@ -20,7 +20,8 @@ sudo cp /vagrant/temp/temp_wallpaper.png /usr/share/lubuntu/wallpapers/sbl_refer
 echo Setting wallpaper | tee -a $log
 WALLPAPERPATH=/usr/share/lubuntu/wallpapers/sbl_reference_environment_gawcurcra15_wallpaper_1024x768.png
 sudo sed -i "s#\(wallpaper *= *\).*#\1$WALLPAPERPATH#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
-sudo sed -i "s#\(wallpaper_mode *= *\).*#\1center#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
+sudo sed -i "s#\(wallpaper_mode *= *\).*#\1fit#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
+sudo sed -i "s#\(desktop_bg *= *\).*#\1\#00447b#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 
 echo Creating link from shell script on desktop| tee -a $log
 ln -sv /home/sbl/run_experiments.sh /home/sbl/Desktop/run_experiments.sh
