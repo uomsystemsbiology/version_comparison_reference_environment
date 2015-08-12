@@ -4,6 +4,12 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+# This is a sample Vagrantfile for a reference environment.  It has a 
+# standard set of scripts to install packages, get code and set things 
+# up.  You can edit this Vagrantfile if you need to, but most configuration
+# for specific projects can probably done just by editing the scripts in
+# /scripts.
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 has_desktop  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))

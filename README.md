@@ -1,16 +1,12 @@
 ### What is this? 
-Vagrant development environment for the manuscript 'Hierarchical Bond Graph Modelling of Biochemical Networks'
-[Here is the project page](http://uomsystemsbiology.github.io/hbgm/)
+This is a template for a reference environment.  It has a standard set of scripts to install packages, get code and set things up.  
 
-### Where is the publication?
-[Here is the arXiv link](http://arxiv.org/abs/1503.01814)
-
-### How do I see the results and work with the code?
-First install [Vagrant](http://www.vagrantup.com) and [VirtualBox](https://www.virtualbox.org/), then do:
+### How do I use it?
 
 ```
-$ git clone https://github.com/uomsystemsbiology/hbgm_vagrant.git
-$ cd hbgm_vagrant
+$ git clone https://github.com/uomsystemsbiology/reference_environment_template.git
+$ cd reference_environment_template
 $ vagrant up
 ```
-This will get the code for this project and build a virtual environment with scripts you can run to reproduce the computations and figures in the publication.
+This will build a virtual environment and run through each of the scripts with examples
+of use.  
