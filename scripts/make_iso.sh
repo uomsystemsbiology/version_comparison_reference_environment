@@ -1,7 +1,7 @@
 #make_iso.sh is an optional script which uses the Remastersys utility
 #to create a bootable ISO from a VM environment.  It only works on VM
 #environments, and uses the file /vagrant/data/remastersys.conf to
-#configure the ISO parameters
+#configure the ISO parameters.
 
 log=/vagrant/temp/install.log
 
@@ -22,3 +22,8 @@ cp /mnt/temp/remastersys/remastersys/*.log /vagrant/output/
 sudo remastersys clean
 
 echo Remastersys completed | tee -a $log
+
+#Once the ISO has been written you can test it using VM software.
+#Once it works as intended, consider making it available with a DOI
+#using a data repository like Zenodo (http://zenodo.org) or Figshare
+#(http://figshare.com)

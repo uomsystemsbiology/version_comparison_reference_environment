@@ -6,6 +6,6 @@ log=/vagrant/temp/install.log
 
 echo Installing Arial font | tee -a $log
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-sudo apt-get -y install msttcorefonts | tee -a $log
-sudo fc-cache -f -v | tee -a $log
+sudo apt-get -y install msttcorefonts
+sudo fc-cache -f -v
 

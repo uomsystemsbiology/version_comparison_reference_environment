@@ -4,17 +4,17 @@
 log=/vagrant/temp/install.log
 
 echo Annotating wallpaper image with text | tee -a $log
-sudo cp /vagrant/temp/data/reference_environment_wallpaper_1024x768.png.png /vagrant/temp/temp_wallpaper.png
+sudo cp /vagrant/temp/data/reference_environment_wallpaper_1024x768.png /vagrant/temp/temp_wallpaper.png
 sudo convert -font Arial-Bold -fill white -pointsize 48 -annotate +25+100 '@/vagrant/temp/data/background_title.txt' /vagrant/temp/temp_wallpaper.png /vagrant/temp/temp_wallpaper.png 2>&1 | tee -a $log
 sudo convert -font Arial-Bold-Italic -fill white -pointsize 32 -annotate +25+200 '@/vagrant/temp/data/project_title.txt' /vagrant/temp/temp_wallpaper.png /vagrant/temp/temp_wallpaper.png 2>&1 | tee -a $log
 sudo convert -font Arial-Regular -fill white -pointsize 22 -annotate +25+300 '@/vagrant/temp/data/background_text.txt'  /vagrant/temp/temp_wallpaper.png /vagrant/temp/temp_wallpaper.png 2>&1 | tee -a $log
 sudo convert -font Arial-Bold -fill white -style Italic -weight Bold -pointsize 16 -annotate +25+650 '@/vagrant/temp/build_info.txt' /vagrant/temp/temp_wallpaper.png /vagrant/temp/temp_wallpaper.png 2>&1 | tee -a $log
 
 echo Copying wallpaper across | tee -a $log
-sudo cp /vagrant/temp/temp_wallpaper.png /usr/share/lubuntu/wallpapers/reference_environment_wallpaper_1024x768.png.png
+sudo cp /vagrant/temp/temp_wallpaper.png /usr/share/lubuntu/wallpapers/reference_environment_wallpaper_1024x768.png
 
 echo Setting wallpaper | tee -a $log
-WALLPAPERPATH=/usr/share/lubuntu/wallpapers/reference_environment_wallpaper_1024x768.png.png
+WALLPAPERPATH=/usr/share/lubuntu/wallpapers/reference_environment_wallpaper_1024x768.png
 sudo sed -i "s#\(wallpaper *= *\).*#\1$WALLPAPERPATH#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 sudo sed -i "s#\(wallpaper_mode *= *\).*#\1fit#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 sudo sed -i "s#\(desktop_bg *= *\).*#\1\#00447b#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf

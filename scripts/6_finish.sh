@@ -6,5 +6,5 @@
 log=/vagrant/temp/install.log
 
 echo Completed reference environment setup | tee -a $log
-echo Run ''vagrant reload'' to make the environment ready for use | tee -a $log
+echo Run \'vagrant reload\' to make the environment ready for use | tee -a $log
 
