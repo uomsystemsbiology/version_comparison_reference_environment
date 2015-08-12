@@ -1,6 +1,4 @@
 The default user is 'sbl' password 'sbl'
 
-Double-click the icon 'run_experiments.sh' and select 
-'Execute in Terminal' to reproduce the results of the paper.
-
-Results and code will be in /home/sbl/gawcurcra15/Examples
+Describe the basic instructions to use the environment here, and the
+location of the output files. 

@@ -5,11 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
 
-is_docker  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))
+has_desktop  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))
 
 # Every Vagrant virtual environment requires a box to build off of.
 # Commented out because we are setting this for each provider
@@ -44,19 +41,28 @@ end
 	config.ssh.password = "sbl"
 	config.ssh.insert_key = false
 	
-#Provisioning scripts
+#Copying the contents of /data to a temporary directory on the environment
 	config.vm.provision "shell", inline: "sudo mkdir /vagrant/temp -p;chmod 777 /vagrant/temp"
 	config.vm.provision "file", source: "data", destination: "/vagrant/temp"
+
+#Provisioning the environment	
+	config.vm.provision "shell", path: "scripts/1_init.sh", privileged: false
+	config.vm.provision "shell", path: "scripts/2_install_core.sh", privileged: false
 	
-	config.vm.provision "shell", path: "scripts/build_nodesktop.sh", privileged: false	
-	if !(is_docker)
-		config.vm.provision "shell", path: "scripts/build_desktop.sh", privileged: false
+	if !(has_desktop)
+		config.vm.provision "shell", path: "scripts/3_install_desktop.sh", privileged: false
 	end	
 	
-	config.vm.provision "shell", path: "scripts/install_gawcurcra15_required_packages.sh", privileged: false
+	config.vm.provision "shell", path: "scripts/4_configure_core.sh", privileged: false
+	
+	if !(has_desktop)
+		config.vm.provision "shell", path: "scripts/5_configure_desktop.sh", privileged: false
+	end
+	
+	config.vm.provision "shell", path: "scripts/6_finish.sh", privileged: false	
 
 # Uncomment the lines below to make an ISO using remastersys and the remastersys.conf file	
-#	if !(is_docker)
+#	if !(has_desktop)
 #	config.vm.provision "shell", path: "scripts/make_iso.sh", privileged: false
 #	end
 
