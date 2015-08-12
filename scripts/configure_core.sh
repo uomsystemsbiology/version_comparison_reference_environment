@@ -1,13 +1,12 @@
-log=/vagrant/temp/install_gawcurcra15.log
+#configure_core.sh sets up applications, compiles code and puts scripts
+#in the appropriate places.  It runs after all the installation commands
+#have completed
 
-echo Installing packages required for gawcurcra15 | tee -a $log
+log=/vagrant/temp/install.log
 
-wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
-sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu precise-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
+echo Copying shell script to home directory | tee -a $log
+sudo cp /vagrant/temp/data/run_experiments.sh /home/sbl/run_experiments.sh
+sudo chmod 777 /home/sbl/run_experiments.sh
 
-sudo apt-get -y update 
-sudo apt-get -y install octave xfig reduce-algebra evince epstool
-sudo apt-get -y autoremove
-sudo apt-get -y install --no-install-recommends tex-common texlive-base texlive-base-bin texlive-font-utils texlive-latex-extra
-
-echo Completed package installation | tee -a $log
+echo Linking the shell script into the root folder | tee -a $log
+sudo ln -sv /home/sbl/run_experiments.sh /run_experiments.sh
