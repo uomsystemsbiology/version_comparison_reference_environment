@@ -4,6 +4,7 @@
 #configure the ISO parameters.
 
 log=/vagrant/temp/install.log
+echo Started make_iso.sh | tee -a $log
 
 echo making iso using Remastersys | tee -a $log
 echo trying to scrub remastersys.conf of Windows line-endings | tee -a $log
@@ -27,3 +28,5 @@ echo Remastersys completed | tee -a $log
 #Once it works as intended, consider making it available with a DOI
 #using a data repository like Zenodo (http://zenodo.org) or Figshare
 #(http://figshare.com)
+
+echo Completed make_iso.sh | tee -a $log

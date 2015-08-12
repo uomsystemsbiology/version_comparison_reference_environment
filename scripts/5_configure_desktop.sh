@@ -2,6 +2,7 @@
 #things which only apply to environments with desktops.
 
 log=/vagrant/temp/install.log
+echo Started configure_desktop.sh | tee -a $log
 
 echo Annotating wallpaper image with text | tee -a $log
 sudo cp /vagrant/temp/data/reference_environment_wallpaper_1024x768.png /vagrant/temp/temp_wallpaper.png
@@ -35,4 +36,4 @@ TERMINALSTRING="uxterm -e %s"
 sudo sed -i "s#\(terminal *= *\).*#\1$TERMINALSTRING#" /home/sbl/.config/libfm/libfm.conf
 printf "[Command]\nTerminal=uxterm -e %%s" > /home/sbl/.config/lxpanel/Lubuntu/config
 
-echo Finished desktop configuration | tee -a $log
+echo Completed configure_desktop.sh | tee -a $log

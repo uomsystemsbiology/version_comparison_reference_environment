@@ -4,7 +4,7 @@
 #do some tidy-up of temp directories
 
 log=/vagrant/temp/install.log
+echo Started finish.sh | tee -a $log
 
-echo Completed reference environment setup | tee -a $log
-echo Run \'vagrant reload\' to make the environment ready for use | tee -a $log
+echo Completed finish.sh | tee -a $log
 

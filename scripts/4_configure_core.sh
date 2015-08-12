@@ -3,6 +3,7 @@
 #have completed
 
 log=/vagrant/temp/install.log
+echo Started configure_core.sh | tee -a $log
 
 echo Copying shell script to home directory | tee -a $log
 sudo cp /vagrant/temp/data/run_experiments.sh /home/sbl/run_experiments.sh
@@ -10,3 +11,5 @@ sudo chmod 777 /home/sbl/run_experiments.sh
 
 echo Linking the shell script into the root folder | tee -a $log
 sudo ln -sv /home/sbl/run_experiments.sh /run_experiments.sh
+
+echo Completed configure_core.sh | tee -a $log

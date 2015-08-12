@@ -12,22 +12,38 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-has_desktop  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))
-
 # Every Vagrant virtual environment requires a box to build off of.
 # Commented out because we are setting this for each provider
 #config.vm.box = "sbl_virtualbox"
 
+#Define some variables to handle specific behaviours
+	is_docker  = (!ARGV.nil? && ARGV.join('').include?('--provider=docker'))
+	is_aws  = (!ARGV.nil? && ARGV.join('').include?('--provider=aws'))
+	is_virtualbox  = (ARGV[0]="up" && !ARGV.join('').include?('--provider'))
+	has_desktop = is_aws || is_virtualbox
+	module OS
+		def OS.windows?
+			(/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+		end
+	end
+
+#Terminate on attempt to use Docker to back a Vagrant environment on Windows 
+if OS.windows? && is_docker
+	    abort "Vagrant on Windows cannot run a Docker reference environment. Aborting."
+end
+
+  
 # Provider details
 config.vm.provider "virtualbox" do |vb,override|
 	vb.gui = true
 	override.vm.box = "uomsystemsbiology/base-vbox"
 end
 
-config.vm.provider "docker" do |docker,override|	
+config.vm.provider "docker" do |docker,override|
     	docker.image = "uomsystemsbiology/base-docker"
     	docker.cmd = ["/sbin/my_init", "--enable-insecure-key"]
     	docker.has_ssh = true
+    	docker.name = "reference_environment_template"
     	override.vm.synced_folder ".", "/vagrant", disabled: true
 end
 
@@ -48,27 +64,39 @@ end
 	config.ssh.insert_key = false
 	
 #Copying the contents of /data to a temporary directory on the environment
-	config.vm.provision "shell", inline: "sudo mkdir /vagrant/temp -p;chmod 777 /vagrant/temp"
+	config.vm.provision "shell", inline: "sudo rm -rf /vagrant/temp;sudo mkdir /vagrant/temp -p;chmod 777 /vagrant/temp"
 	config.vm.provision "file", source: "data", destination: "/vagrant/temp"
 
 #Provisioning the environment	
 	config.vm.provision "shell", path: "scripts/1_init.sh", privileged: false
 	config.vm.provision "shell", path: "scripts/2_install_core.sh", privileged: false
 	
-	if !(has_desktop)
+	if (has_desktop)
 		config.vm.provision "shell", path: "scripts/3_install_desktop.sh", privileged: false
 	end	
 	
 	config.vm.provision "shell", path: "scripts/4_configure_core.sh", privileged: false
 	
-	if !(has_desktop)
+	if (has_desktop)
 		config.vm.provision "shell", path: "scripts/5_configure_desktop.sh", privileged: false
 	end
 	
 	config.vm.provision "shell", path: "scripts/6_finish.sh", privileged: false	
 
+#Instructions for starting the environment, by environment type
+	if (is_aws)
+		config.vm.post_up_message = "Reference environment setup complete for AWS\nRun \'vagrant rdp -- /w:1024 /h:768\' to make an RDP connection to the environment\n RDP password is \'sbl\'\nOr ssh in using the IP in your AWS Console."
+	elsif (is_virtualbox)
+		config.vm.post_up_message = "Reference environment setup complete for VirtualBox\nRun \'vagrant reload\' to reboot the environment \nand make it ready for use."	 
+	elsif (is_docker)
+		config.vm.post_up_message = "Reference environment setup complete for Docker\nRun \'docker exec reference_environment_template /bin/bash run_experiments.sh\'\nto execute the command script in the reference environment\n"
+	else
+		config.vm.post_up_message = "Environment type not detected."
+	end
+	
+	
 # Uncomment the lines below to make an ISO using remastersys and the remastersys.conf file	
-#	if !(has_desktop)
+#	if (is_virtualbox)
 #	config.vm.provision "shell", path: "scripts/make_iso.sh", privileged: false
 #	end
 
