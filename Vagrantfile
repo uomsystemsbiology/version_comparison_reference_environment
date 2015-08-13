@@ -27,9 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		end
 	end
 
-#Terminate on attempt to use Docker to back a Vagrant environment on Windows 
+#Terminate on attempt to use Docker to back a Vagrant environment on Windows
+#because currently it's not very reliable.  Comment this out if you want to try it.
 if OS.windows? && is_docker
-	    abort "Vagrant on Windows cannot run a Docker reference environment. Aborting."
+    abort "Vagrant on Windows backing a Docker reference environment is unreliable\nso this is currently disabled. Aborting."
 end
 
   
