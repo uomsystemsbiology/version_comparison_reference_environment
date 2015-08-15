@@ -88,7 +88,7 @@ end
 	if (is_aws)
 		config.vm.post_up_message = "Reference environment setup complete for AWS\nRun \'vagrant rdp -- /w:1024 /h:768\' to make an RDP connection to the environment\n RDP password is \'sbl\'\nOr ssh in using the IP in your AWS Console."
 	elsif (is_virtualbox)
-		config.vm.post_up_message = "Reference environment setup complete for VirtualBox\nRun \'vagrant reload\' to reboot the environment \nand make it ready for use."	 
+		config.vm.post_up_message = "Reference environment setup complete for VirtualBox\nRun \'vagrant reload\' to reboot the environment after first setup \nand make it ready for use."	 
 	elsif (is_docker)
 		config.vm.post_up_message = "Reference environment setup complete for Docker\nRun \'docker exec reference_environment_template /bin/bash run_experiments.sh\'\nto execute the command script in the reference environment\n"
 	else
