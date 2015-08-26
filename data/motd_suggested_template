@@ -1,0 +1,24 @@
+### Overview
+This is the reference environment for the manuscript ['Manuscript Name'](http://manuscript-link.org).  It executes code to reproduce specific results described in the manuscript.   You can find more information about this research at the [Project page](http://project-link.org).  
+
+To find other versions of this reference environment, see Other Links below.  To learn more about reference environments, [see the detailed description here](http://reference-environments-link.org).  
+
+### Instructions for use
+
+To use this version of the reference environment from a shell, do:
+
+```
+$ cd /
+$ ./run_experiments.sh
+```
+This will execute a script to reproduce the results described in the manuscript. 
+
+### Other links
+
+[Manuscript link](http://manuscript-link.org)
+
+[Project page link](http://project-link.org)
+
+[Docker container](https://docker-link.org)
+
+[Bootable ISO](https://iso-link.org)
