@@ -1,2 +1,2 @@
 <Organisation Title>
-Reference Computation Environment
+Reference Environment
