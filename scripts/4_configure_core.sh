@@ -8,6 +8,9 @@ echo Started configure_core.sh | tee -a $log
 echo Copying login message to /etc/motd | tee -a $log
 sudo cp /vagrant/temp/data/motd /etc/motd
 
+echo Copying build info to home directory | tee -a $log
+sudo cp /vagrant/temp/build_info.txt /home/sbl/build_info.txt
+
 echo Copying shell script to home directory | tee -a $log
 sudo cp /vagrant/temp/data/run_experiments.sh /home/sbl/run_experiments.sh
 sudo chmod 777 /home/sbl/run_experiments.sh
