@@ -1,7 +1,7 @@
 ### Overview
 This is the reference environment for the manuscript ['Manuscript Name'](http://manuscript-link.org).  It executes code to reproduce specific results described in the manuscript.   You can find more information about this research at the [Project page](http://project-link.org).  
 
-To find other versions of this reference environment, see Other Links below.  To learn more about reference environments, [see the detailed description here](http://reference-environments-link.org).  
+To find other versions of this reference environment, see Other Links below.  To learn more about reference environments, [see the detailed description here](https://uomsystemsbiology.github.io/reference-environments/).  
 
 ### Instructions for use
 
