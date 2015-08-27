@@ -90,7 +90,7 @@ end
 	elsif (is_virtualbox)
 		config.vm.post_up_message = "Reference environment setup complete for VirtualBox\nRun \'vagrant reload\' to reboot the environment after first setup \nand make it ready for use."	 
 	elsif (is_docker)
-		config.vm.post_up_message = "Reference environment setup complete for Docker\nRun \'docker exec reference_environment_template /bin/bash run_experiments.sh\'\nto execute the command script in the reference environment\n"
+		config.vm.post_up_message = "Reference environment setup complete for Docker\nRun \'vagrant ssh\' to connect to the reference environment\n"
 	else
 		config.vm.post_up_message = "Environment type not detected."
 	end

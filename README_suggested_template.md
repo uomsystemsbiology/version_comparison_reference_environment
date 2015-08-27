@@ -12,6 +12,7 @@ This version of the reference environment is a virtual machine managed by [Vagra
 $ git clone https://github.com/uomsystemsbiology/project_name.git
 $ cd project_name
 $ vagrant up
+$ vagrant reload
 ```
 This will start a virtual machine with scripts to run which reproduce results described in the manuscript.  
 
