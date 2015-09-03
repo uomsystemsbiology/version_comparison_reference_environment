@@ -37,7 +37,7 @@ end
 # Provider details
 config.vm.provider "virtualbox" do |vb,override|
 	vb.gui = true
-	override.vm.box = "uomsystemsbiology/base-vbox"
+	override.vm.box = "uomsystemsbiology/base64-vbox"
 end
 
 config.vm.provider "docker" do |docker,override|
@@ -56,7 +56,7 @@ config.vm.provider "aws" do |aws,override|
 	aws.instance_type = "t2.micro"
         aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
 	aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-	aws.security_groups = "launch-wizard-5"
+	aws.security_groups = ENV['AWS_SECURITY_GROUP']
 end
 
 #Connection details
