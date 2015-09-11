@@ -40,6 +40,9 @@ config.vm.provider "virtualbox" do |vb,override|
 	override.vm.box = "uomsystemsbiology/base64-vbox"
 end
 
+#Set up synced folders
+
+
 config.vm.provider "docker" do |docker,override|
     	docker.image = "uomsystemsbiology/base-docker"
     	docker.cmd = ["/sbin/my_init", "--enable-insecure-key"]

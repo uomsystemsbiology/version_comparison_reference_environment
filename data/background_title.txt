@@ -1,2 +1,2 @@
-<Organisation Title>
+Systems Biology Lab
 Reference Environment

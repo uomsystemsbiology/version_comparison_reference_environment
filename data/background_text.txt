@@ -1,5 +1,1 @@
 The default user is 'sbl' password 'sbl'
-This is the content of data\background_text.txt
-Describe the basic instructions to use the environment here, and the
-location of the output files.  Double-click the script below and
-select 'Execute in Terminal' to run it

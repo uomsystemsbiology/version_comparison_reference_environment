@@ -21,8 +21,10 @@ sudo sed -i "s#\(wallpaper_mode *= *\).*#\1fit#" /home/sbl/.config/pcmanfm/lubun
 sudo sed -i "s#\(desktop_bg *= *\).*#\1\#00447b#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 
 echo Creating link from shell script on desktop| tee -a $log
-ln -sv /home/sbl/run_experiments.sh /home/sbl/Desktop/run_experiments.sh
-printf "[run_experiments.sh]\nx=10\ny=500\n" >> /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
+ln -sv /home/sbl/R2012a_example.sh /home/sbl/Desktop/R2012a_example.sh
+printf "[R2012a_example.sh]\nx=10\ny=500\n" >> /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
+ln -sv /home/sbl/R2015a_example.sh /home/sbl/Desktop/R2015a_example.sh
+printf "[R2015a_example.sh]\nx=110\ny=500\n" >> /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
 
 echo Removing Trash icon from the desktop
 sudo sed -i "s#\(show_trash *= *\).*#\10#" /home/sbl/.config/pcmanfm/lubuntu/desktop-items-0.conf
