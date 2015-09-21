@@ -36,6 +36,6 @@ echo
 echo -en "\033]0;Compiled with MATLAB R2012a\a"
 /home/sbl/R2012a_code/run_optimp.sh /usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/
 
-echo Completed analysis | tee -a $log
+echo Completed analysis with MATLAB x7.14.0.739 (R2012a) and the MATLAB Compiler v4.17 | tee -a $log
 echo;echo
 $SHELL

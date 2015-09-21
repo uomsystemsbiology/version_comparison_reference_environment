@@ -1,1 +1,4 @@
 The default user is 'sbl' password 'sbl'
+Double-click the scripts below and select 'Execute in Terminal' to run
+the same nonlinear optimisation model compiled with MATLAB R2012a and
+R2015a.  Details are in /home/sbl/epidermalerkmapk/README.txt

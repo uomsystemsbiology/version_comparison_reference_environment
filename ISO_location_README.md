@@ -17,24 +17,24 @@ You can find a summary of the work on the project page at our website [here](htt
 To find other versions of this reference environment, see Other Links below.  
 To learn more about reference environments, [see the detailed description here](http://uomsystemsbiology.github.io/research/reference-environments/).  
 
+
 ### Instructions for use
 
-To use this version of the reference environment from a shell, do:
+This version of the reference environment is a live image as a bootable read-only ISO.  To use it:
 
-```
-$ cd /
-$ ./R2012a_example.sh
-$ ./R2015a_example.sh
-```
-This will execute scripts to run the MATLAB nonlinear optimisation code using MATLAB R2012a and the MATLAB Compiler v4.17, and MATLAB R2015a and the MATLAB Compiler v6.0. 
+- Install a virtualization tool like [VirtualBox](https://www.virtualbox.org/), then 
+- Create a new virtual machine in the virtualization tool with a virtual CD/DVD-ROM drive
+- Mount the ISO in the drive
+- Boot the machine.  
+
+This will start a virtual machine with scripts to run the MATLAB nonlinear optimisation code using MATLAB R2012a and the MATLAB Compiler v4.17, and MATLAB R2015a and the MATLAB Compiler v6.0.  
+
 
 ### Other links
 
 [Manuscript link](http://dx.doi.org/10.1186/s12918-015-0187-6)
 
 [Project page link](http://uomsystemsbiology.github.io/publications/human-skin-signalling/)
-
-[Bootable ISO](https://dx.doi.org/10.5281/zenodo.31215)
 
 [Vagrant-managed virtual machine](http://github.com/uomsystemsbiology/version_comparison_reference_environment)
 

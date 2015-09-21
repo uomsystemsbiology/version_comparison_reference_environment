@@ -36,6 +36,6 @@ echo
 echo -en "\033]0;Compiled with MATLAB R2015a\a"
 /home/sbl/R2015a_code/run_optimp.sh /usr/local/MATLAB/MATLAB_Runtime/v85/
 
-echo Completed analysis | tee -a $log
+echo Completed analysis using MATLAB v8.5.0.197613 (R2015a) and the MATLAB Compiler v6.0. | tee -a $log
 echo;echo
 $SHELL

@@ -19,6 +19,13 @@ echo Writing build info into build_info.txt | tee -a $log
 printf 'MCR R2015a, MCR2012a' >> /vagrant/temp/build_info.txt
 printf '\nEnvironment built at ' >> /vagrant/temp/build_info.txt
 date >> /vagrant/temp/build_info.txt
+
+echo Getting code | tee -a $log
+mkdir epidermalerkmapk
+wget http://sourceforge.net/projects/epidermalerkmapk/files/MATLAB%20Code/README.txt/download -O epidermalerkmapk/README.txt
+wget http://sourceforge.net/projects/epidermalerkmapk/files/MATLAB%20Code/fobj.m/download -O epidermalerkmapk/fobj.m
+wget http://sourceforge.net/projects/epidermalerkmapk/files/MATLAB%20Code/optimp.m/download -O epidermalerkmapk/optimp.m
+wget http://sourceforge.net/projects/epidermalerkmapk/files/MATLAB%20Code/V2O.m/download -O epidermalerkmapk/V2O.m
 echo Got code | tee -a $log
 
 echo Completed install_core.sh | tee -a $log
